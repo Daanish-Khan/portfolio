@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { Container } from '@mui/system';
+import { TypeAnimation } from 'react-type-animation';
+import { motion } from 'framer-motion';
 
 import Waves from '../components/Waves';
 import { COLORS } from '../components/consts'
@@ -33,26 +35,55 @@ function LandingPage() {
                 position:"fixed",
                 top: "15vh",
             }}>
-
-            <Typography 
-                variant="h1" 
-                sx={{
-                    color: COLORS.defaultColor, 
-                    textAlign: "center", 
-                    display: "inline",
-                    fontWeight: "medium",
-                }}>
-                    Hey!
-            </Typography>
-            <Typography 
-                variant="h1"
-                sx={{
-                    color: COLORS.defaultColor, 
-                    textAlign: "center", 
-                    display: "inline",
-                }}> I'm Daanish.
-            </Typography>    
+                <motion.div
+                    className='greeting-text'
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 1,
+                        delay: 0.5,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}
+                >
+                    <Typography 
+                        variant="h1"
+                        sx={{
+                            color: COLORS.defaultColor, 
+                            textAlign: "center", 
+                            fontWeight: "medium",
+                        }}> Hey!
+                    </Typography>
+                </motion.div>
+                <motion.div
+                    className='name-text'
+                    initial={{ opacity: 0}}
+                    animate={{ opacity: 1}}
+                    transition={{
+                        duration: 1,
+                        delay: 0.5,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}
+                >
+                    <Typography 
+                        variant="h1" 
+                        sx={{
+                            color: COLORS.defaultColor, 
+                            textAlign: "center", 
+                            display: "inline",
+                        }}>
+                            <TypeAnimation 
+                                sequence={[
+                                    '', 1400,
+                                    'I\'m Daanish.'
+                                ]}
+                                wrapper="span"
+                                speed={10}
+                            />
+                    </Typography>
+                </motion.div>
             </Box>
+
+
 
                 <Waves
                     colorArray={[
