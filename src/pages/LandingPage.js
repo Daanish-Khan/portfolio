@@ -3,10 +3,15 @@ import { Box, Typography, useMediaQuery, Divider, Stack } from '@mui/material';
 import { Container } from '@mui/system';
 import { TypeAnimation } from 'react-type-animation';
 import { motion, wrap } from 'framer-motion';
+import About from '../graphics/about';
+import Projects from '../graphics/projects';
+import Socials from '../graphics/socials';
+import Blog from '../graphics/blog'
+import Contact from '../graphics/contact'
 
 import Waves from '../components/Waves';
-import { COLORS } from '../components/consts'
-import './LandingPage.css'
+import { COLORS } from '../components/consts';
+import './LandingPage.css';
 
 
 function LandingPage() {
@@ -24,6 +29,7 @@ function LandingPage() {
     const xlWidth = useMediaQuery('(min-width:1536px');
 
     return (
+
         <Container maxWidth="false"
         sx={{
             display: "flex",
@@ -33,12 +39,39 @@ function LandingPage() {
             paddingX: "10px"
         }}>
 
-            <div className="bg"/>
-            <Stack useFlexGap sx={{width: "100vw", height: "100vh"}} spacing={5}>
+        <div className="bg"/>
+
+            <Waves
+                colorArray={[
+                    "#FA7268",
+                    "#EF5F67",
+                    "#E34C67",
+                    "#D53867",
+                    "#C62368",
+                ]}
+                style={{
+                    position:"absolute",
+                    width: "100vw",
+                    bottom:"0px",
+                    left:"0px",
+                    margin: "0px"
+                }}
+                wrapperHeight="45vh"
+                gap={
+                    (xs && !sm) ? 20 : (sm && !md) ? 15 : (md && !lg) ? 14 : (lg && !xl) ? 12 : 8
+                }
+                height={20}
+                speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
+                points={5}
+                amplitude={20}
+            />
+
+            
+            <Stack useFlexGap sx={{width: "100vw", height: "100vh"}} spacing={{xs: 5, lg: 7}}>
                 <Box
                     sx={{
                         position: "relative",
-                        top: "15vh",
+                        top: "10vh",
                         left: {sm: "0vw", md: "10vw"}
                     }}
                 >
@@ -56,7 +89,8 @@ function LandingPage() {
                             variant="h1"
                             sx={{
                                 color: COLORS.defaultColor, 
-                                textAlign: "left", 
+                                textAlign: {xs: "center", sm: "left"}, 
+                                display: {xs: "block", sm: "inline"}, 
                                 fontWeight: "medium",
                             }}> Hey!
                         </Typography>
@@ -75,8 +109,8 @@ function LandingPage() {
                             variant="h1" 
                             sx={{
                                 color: COLORS.defaultColor, 
-                                textAlign: "left", 
-                                display: "inline"
+                                textAlign: {xs: "center", sm: "left"}, 
+                                display: {xs: "block", sm: "inline"}
                             }}>
                                 <TypeAnimation 
                                     sequence={[
@@ -92,8 +126,8 @@ function LandingPage() {
                 <Box 
                     sx={{
                         position: "relative",
-                        top: "15vh",
-                        left: {sm: "0vw", md: "10vw"}
+                        top: "4vh",
+                        left: {sm: "0vw", md: "10vw"},
                     }}
                 >
                     <motion.div
@@ -135,31 +169,47 @@ function LandingPage() {
                         </Divider>
                     </motion.div>
                 </Box>
+                <Box
+                    sx={{
+                        position: "relative",
+                        left: {xs: "0vw", lg: "10vw"}
+                    }}    
+                >   
+                <Stack direction="row" spacing={{xs: 5, lg: 7}} justifyContent={{xs: "center", lg: "left"}}>
+                    <About 
+                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            delay={2.8}
+                            color="white"
+                        />
+                        <Projects 
+                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            delay={3.1}
+                            color="white"
+                        />
+                        <Socials
+                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            delay={3.3}
+                            color="white"
+                        />
+                        <Blog
+                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            delay={3.5}
+                            color="white"
+                        />
+                        <Contact
+                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                            delay={3.7}
+                            color="white"
+                        />
+                    </Stack>
+                </Box>
             </Stack>
-            <Waves
-                colorArray={[
-                    "#FA7268",
-                    "#EF5F67",
-                    "#E34C67",
-                    "#D53867",
-                    "#C62368",
-                ]}
-                style={{
-                    position:"absolute",
-                    width: "100vw",
-                    bottom:"0px",
-                    left:"0px",
-                    margin: "0px"
-                }}
-                wrapperHeight="45vh"
-                gap={
-                    (xs && !sm) ? 20 : (sm && !md) ? 15 : (md && !lg) ? 14 : (lg && !xl) ? 12 : 8
-                }
-                height={20}
-                speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
-                points={5}
-                amplitude={20}
-            />
+            
 
         </Container>
 
