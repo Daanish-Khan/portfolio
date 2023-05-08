@@ -6,8 +6,9 @@ import { motion, wrap } from 'framer-motion';
 import About from '../graphics/about';
 import Projects from '../graphics/projects';
 import Socials from '../graphics/socials';
-import Blog from '../graphics/blog'
-import Contact from '../graphics/contact'
+import Blog from '../graphics/blog';
+import Contact from '../graphics/contact';
+import ScrollDown from '../graphics/scrolldown';
 
 import Waves from '../components/Waves';
 import { COLORS } from '../components/consts';
@@ -172,7 +173,8 @@ function LandingPage() {
                 <Box
                     sx={{
                         position: "relative",
-                        left: {xs: "0vw", lg: "10vw"}
+                        left: {xs: "0vw", lg: "10vw"},
+                        justifyContent:{xs: "center", lg: "left"}
                     }}    
                 >   
                 <Stack direction="row" spacing={{xs: 5, lg: 7}} justifyContent={{xs: "center", lg: "left"}}>
@@ -207,10 +209,23 @@ function LandingPage() {
                             color="white"
                         />
                     </Stack>
+                    
                 </Box>
+                <Box
+                    sx={{
+                        position: "relative",
+                        justifyContent: "center"
+                    }}  
+                >
+                     <ScrollDown
+                        width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                        height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                        delay={3.7}
+                        color="white"
+                    />
+                </Box>
+               
             </Stack>
-            
-
         </Container>
 
         
