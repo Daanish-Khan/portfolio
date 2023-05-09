@@ -70,12 +70,12 @@ function LandingPage() {
         sx={{
             display: "flex",
             width: "100vw",
-            height: "100vh",
+            height: "300vh",
+            maxWidth: "100%",
             alignItems: "center",
-            paddingX: "10px"
+            paddingX: "10px",
+            position:"relative",
         }}>
-
-        <div className="bg"/>
 
             <Waves
                 colorArray={[
@@ -86,8 +86,8 @@ function LandingPage() {
                     "#C62368",
                 ]}
                 style={{
-                    position:"absolute",
-                    width: "100vw",
+                    position:"fixed",
+                    width: "100%",
                     bottom:"0px",
                     left:"0px",
                     margin: "0px"
@@ -103,12 +103,13 @@ function LandingPage() {
             />
 
             
-            <Stack useFlexGap sx={{width: "100vw", height: "100vh"}} spacing={{xs: 5, lg: 7}}>
+            <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}}>
                 <Box
                     sx={{
                         position: "relative",
                         top: "10vh",
-                        left: {sm: "0vw", md: "10vw"}
+                        left: {sm: "0vw", md: "10vw"},
+                        width: {md: "90%"}
                     }}
                 >
                     <motion.div
@@ -164,6 +165,7 @@ function LandingPage() {
                         position: "relative",
                         top: (xs && !sm) ? "4vh" : (sm && !md) ? "6vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
                         left: {sm: "0vw", md: "10vw"},
+                        width: {md: "90%"}
                     }}
                 >
                     <motion.div
@@ -209,6 +211,7 @@ function LandingPage() {
                     sx={{
                         position: "relative",
                         left: {xs: "0vw", md: "10vw"},
+                        width: {md: "90%"},
                         top: (xs && !sm) ? "4vh" : (sm && !md) ? "4vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
                     }}    
                 >   
