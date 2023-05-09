@@ -29,6 +29,41 @@ function LandingPage() {
     const lgWidth = useMediaQuery('(min-width:1200px');
     const xlWidth = useMediaQuery('(min-width:1536px');
 
+    const textMotion = {
+        rest: {
+            opacity: 0,
+            width: 0,
+            x: -10,
+            transition: {
+                duration: 0.4,
+                type: "tween",
+                ease: "easeIn"
+            },
+            transitionEnd: { display: "none" }
+        },
+        hover: {
+            opacity: 1,
+            width: "100%",
+            x:0,
+            display: "block",
+            transition: {
+                duration: 0.4,
+                type: "tween",
+                ease: "easeOut"
+            }
+        }
+    }
+
+    const parent = {
+        rest: {
+            opacity: 1,
+        },
+        hover: {
+            opacity: 1
+        }
+    }
+
+
     return (
 
         <Container maxWidth="false"
@@ -90,8 +125,8 @@ function LandingPage() {
                             variant="h1"
                             sx={{
                                 color: COLORS.defaultColor, 
-                                textAlign: {xs: "center", sm: "left"}, 
-                                display: {xs: "block", sm: "inline"}, 
+                                textAlign: {xs: "center", md: "left"}, 
+                                display: {xs: "block", md: "inline"}, 
                                 fontWeight: "medium",
                             }}> Hey!
                         </Typography>
@@ -110,8 +145,8 @@ function LandingPage() {
                             variant="h1" 
                             sx={{
                                 color: COLORS.defaultColor, 
-                                textAlign: {xs: "center", sm: "left"}, 
-                                display: {xs: "block", sm: "inline"}
+                                textAlign: {xs: "center", md: "left"}, 
+                                display: {xs: "block", md: "inline"}
                             }}>
                                 <TypeAnimation 
                                     sequence={[
@@ -127,7 +162,7 @@ function LandingPage() {
                 <Box 
                     sx={{
                         position: "relative",
-                        top: "4vh",
+                        top: (xs && !sm) ? "4vh" : (sm && !md) ? "6vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
                         left: {sm: "0vw", md: "10vw"},
                     }}
                 >
@@ -150,7 +185,7 @@ function LandingPage() {
                                         overflow: "visible",
                                     },
                                     color: COLORS.defaultColor,
-                                    width: {xs: "100%", sm: "65%", md: "50%", xl: "30%"}
+                                    width: {xs: "100%", md: "50%", xl: "30%"}
                                     
                                 }}>
                                     {( lgWidth ) ? 
@@ -173,48 +208,125 @@ function LandingPage() {
                 <Box
                     sx={{
                         position: "relative",
-                        left: {xs: "0vw", lg: "10vw"},
-                        justifyContent:{xs: "center", lg: "left"}
+                        left: {xs: "0vw", md: "10vw"},
+                        top: (xs && !sm) ? "4vh" : (sm && !md) ? "4vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
                     }}    
                 >   
-                <Stack direction="row" spacing={{xs: 5, lg: 7}} justifyContent={{xs: "center", lg: "left"}}>
-                    <About 
-                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            delay={2.8}
-                            color="white"
-                        />
-                        <Projects 
-                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            delay={3.1}
-                            color="white"
-                        />
-                        <Socials
-                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            delay={3.3}
-                            color="white"
-                        />
-                        <Blog
-                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            delay={3.5}
-                            color="white"
-                        />
-                        <Contact
-                            width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                            delay={3.7}
-                            color="white"
-                        />
+                    <Stack direction="row" spacing={{xs: 5, lg: 7}} justifyContent={{xs: "center", md: "left"}}>
+                        
+                        <motion.div style={{ display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={parent}>
+                            <motion.div style={{flexShrink: 0, display:"inline-block"}}>
+                                <About 
+                                    width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    delay={2.8}
+                                    color="white"
+                                />
+                            </motion.div>
+                            {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}} >
+                                <Typography  
+                                    variant="h4" 
+                                    sx={{
+                                        color: "white", 
+                                        overflow: "hidden",
+                                        paddingLeft: "10px",
+                                        cursor: "pointer"
+                                    }}>About</Typography>
+                            </motion.div>}
+                        </motion.div>
+
+                        <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={parent}>
+                            <motion.div style={{flexShrink: 0, display:"inline-block"}}>
+                                <Projects 
+                                    width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    delay={3.1}
+                                    color="white"
+                                />
+                            </motion.div>
+                            {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
+                                <Typography  
+                                    variant="h4" 
+                                    sx={{
+                                        color: "white", 
+                                        overflow: "hidden",
+                                        paddingLeft: "10px",
+                                        cursor: "pointer"
+                                    }}>Projects</Typography>
+                            </motion.div>}
+                        </motion.div>
+
+                        <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={parent}>
+                            <motion.div style={{flexShrink: 0, display:"inline-block"}}>
+                                <Socials 
+                                    width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    delay={3.3}
+                                    color="white"
+                                />
+                            </motion.div>
+                            {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
+                                <Typography  
+                                    variant="h4" 
+                                    sx={{
+                                        color: "white", 
+                                        overflow: "hidden",
+                                        paddingLeft: "10px",
+                                        cursor: "pointer"
+                                    }}>Socials</Typography>
+                            </motion.div>}
+                        </motion.div>
+                        
+                        <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={parent}>
+                            <motion.div style={{flexShrink: 0, display:"inline-block"}}>
+                                <Blog 
+                                    width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    delay={3.5}
+                                    color="white"
+                                />
+                            </motion.div>
+                            {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
+                                <Typography  
+                                    variant="h4" 
+                                    sx={{
+                                        color: "white", 
+                                        overflow: "hidden",
+                                        paddingLeft: "10px",
+                                        cursor: "pointer"
+                                    }}>Blog</Typography>
+                            </motion.div>}
+                        </motion.div>
+                        
+                        <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={parent}>
+                            <motion.div style={{flexShrink: 0, display:"inline-block"}}>
+                                <Contact 
+                                    width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    delay={3.7}
+                                    color="white"
+                                />
+                            </motion.div>
+                            {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
+                                <Typography  
+                                    variant="h4" 
+                                    sx={{
+                                        color: "white", 
+                                        overflow: "hidden",
+                                        paddingLeft: "10px",
+                                        cursor: "pointer"
+                                    }}>Contact</Typography>
+                            </motion.div>}
+                        </motion.div>
                     </Stack>
-                    
                 </Box>
                 <Box
                     sx={{
                         position: "relative",
-                        justifyContent: "center"
+                        justifyContent: "center",
+                        display: "flex",
+                        width: "100%",
+                        top: (xs && !sm) ? "4vh" : (sm && !md) ? "4vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
                     }}  
                 >
                      <ScrollDown
