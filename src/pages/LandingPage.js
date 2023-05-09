@@ -70,37 +70,39 @@ function LandingPage() {
         sx={{
             display: "flex",
             width: "100vw",
-            height: "300vh",
+            height: "200vh",
             maxWidth: "100%",
             alignItems: "center",
             paddingX: "10px",
             position:"relative",
         }}>
-
-            <Waves
-                colorArray={[
-                    "#FA7268",
-                    "#EF5F67",
-                    "#E34C67",
-                    "#D53867",
-                    "#C62368",
-                ]}
-                style={{
-                    position:"fixed",
-                    width: "100%",
-                    bottom:"0px",
-                    left:"0px",
-                    margin: "0px"
-                }}
-                wrapperHeight="45vh"
-                gap={
-                    (xs && !sm) ? 20 : (sm && !md) ? 15 : (md && !lg) ? 14 : (lg && !xl) ? 12 : 8
-                }
-                height={20}
-                speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
-                points={5}
-                amplitude={20}
-            />
+           
+                <Waves
+                    colorArray={[
+                        "#FA7268",
+                        "#EF5F67",
+                        "#E34C67",
+                        "#D53867",
+                        "#C62368",
+                    ]}
+                    style={{
+                        position:"absolute",
+                        width: "100%",
+                        bottom: "0",
+                        left:"0px",
+                        margin: "0px",
+                    }}
+                    wrapperHeight="100%"
+                    gap={ 
+                        (xs && !sm) ? 4 : (sm && !md) ? 3 : (md && !lg) ? 2 : (lg && !xl) ? 2 : 1
+                    }
+                    height={5}
+                    speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
+                    points={5}
+                    amplitude={20}
+                />
+          
+            
 
             
             <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}}>
