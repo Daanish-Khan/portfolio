@@ -70,7 +70,7 @@ function LandingPage() {
         sx={{
             display: "flex",
             width: "100vw",
-            height: "200vh",
+            height: "600vh",
             maxWidth: "100%",
             alignItems: "center",
             paddingX: "10px",
@@ -86,20 +86,23 @@ function LandingPage() {
                         "#C62368",
                     ]}
                     style={{
-                        position:"absolute",
+                        position:"fixed",
                         width: "100%",
-                        bottom: "0",
                         left:"0px",
+                        bottom: 0,
                         margin: "0px",
+                        overflow: "visible",
                     }}
                     wrapperHeight="100%"
                     gap={ 
-                        (xs && !sm) ? 4 : (sm && !md) ? 3 : (md && !lg) ? 2 : (lg && !xl) ? 2 : 1
+                        (xs && !sm) ? 40 : (sm && !md) ? 50 : (md && !lg) ? 60 : (lg && !xl) ? 70 : 100
                     }
                     height={5}
                     speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
                     points={5}
                     amplitude={20}
+                    initialGap={(xs && !sm) ? 200 : (sm && !md) ? 400 : (md && !lg) ? 800 : (lg && !xl) ? 800 : 1000}
+                    scrollGap={(xs && !sm) ? 10 : (sm && !md) ? 0 : (md && !lg) ? 0 : (lg && !xl) ? 0 : -35}
                 />
           
             
