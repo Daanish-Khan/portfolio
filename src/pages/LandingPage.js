@@ -29,43 +29,39 @@ function LandingPage() {
     return (
 
         <Container maxWidth="false"
-        sx={{
-            display: "flex",
-            width: "100vw",
-            height: "600vh",
-            maxWidth: "100%",
-            alignItems: "center",
-            paddingX: "10px",
-            position:"relative",
-        }}>
+            sx={{
+                width: "100vw",
+                maxWidth: "100%",
+                paddingX: "10px",
+                position:"relative",
+            }}>
            
-                <Waves
-                    colorArray={[
-                        "#FA7268",
-                        "#EF5F67",
-                        "#E34C67",
-                        "#D53867",
-                        "#C62368",
-                    ]}
-                    style={{
-                        position:"fixed",
-                        width: "100%",
-                        left:"0px",
-                        bottom: 0,
-                        margin: "0px",
-                        overflow: "visible",
-                    }}
-                    wrapperHeight="100%"
-                    gap={ 
-                        (xs && !sm) ? 40 : (sm && !md) ? 50 : (md && !lg) ? 60 : (lg && !xl) ? 70 : 100
-                    }
-                    height={5}
-                    speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
-                    points={5}
-                    amplitude={20}
-                    initialGap={(xs && !sm) ? 200 : (sm && !md) ? 400 : (md && !lg) ? 800 : (lg && !xl) ? 800 : 1000}
-                    scrollGap={(xs && !sm) ? 10 : (sm && !md) ? 0 : (md && !lg) ? 0 : (lg && !xl) ? 0 : -35}
-                />
+            <Waves
+                colorArray={[
+                    "#FA7268",
+                    "#EF5F67",
+                    "#E34C67",
+                    "#D53867",
+                    "#C62368",
+                ]}
+                style={{
+                    position:"fixed",
+                    width: "100%",
+                    left:"0px",
+                    bottom: 0,
+                    margin: "0px",
+                    overflow: "visible",
+                }}
+                wrapperHeight="100%"
+                gap={ 
+                    (xs && !sm) ? 40 : (sm && !md) ? 50 : (md && !lg) ? 60 : (lg && !xl) ? 70 : 100
+                }
+                height={5}
+                speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
+                points={5}
+                amplitude={20}
+                initialGap={(xs && !sm) ? 200 : (sm && !md) ? 400 : (md && !lg) ? 800 : (lg && !xl) ? 800 : 1000}
+            />
             
             <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}}>
                 <Box
@@ -197,8 +193,76 @@ function LandingPage() {
                         color="white"
                     />
                 </Box>
-               
             </Stack>
+            <Stack useFlexGap sx={{width: "100%", height: "100%"}}>
+                <Box
+                        sx={{
+                            position: "relative",
+                            display: "flex",
+                            width: "100%",
+                            height: "100vh",
+                            top: "100vh",
+                            backgroundColor: "black"
+                        }}
+                    
+                    > 
+
+                </Box>
+                <Box
+                        sx={{
+                            position: "relative",
+                            display: "flex",
+                            width: "100%",
+                            height: "100vh",
+                            top: "100vh",
+                            backgroundColor: "red"
+                        }}
+                    
+                    > 
+
+                </Box>
+                <Box
+                        sx={{
+                            position: "relative",
+                            display: "flex",
+                            width: "100%",
+                            height: "100vh",
+                            top: "100vh",
+                            backgroundColor: "white"
+                        }}
+                    
+                    > 
+
+                </Box>
+                <Box
+                        sx={{
+                            position: "relative",
+                            display: "flex",
+                            width: "100%",
+                            height: "100vh",
+                            top: "100vh",
+                            backgroundColor: "yellow"
+                        }}
+                    
+                    > 
+
+                </Box>
+                <Box
+                        sx={{
+                            position: "relative",
+                            display: "flex",
+                            width: "100%",
+                            height: "100vh",
+                            top: "100vh",
+                            backgroundColor: "orange"
+                        }}
+                    
+                    > 
+
+                </Box>
+            </Stack>
+
+            
         </Container>
 
         
