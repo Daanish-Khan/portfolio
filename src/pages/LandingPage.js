@@ -39,7 +39,7 @@ function LandingPage() {
                 type: "tween",
                 ease: "easeIn"
             },
-            transitionEnd: { display: "none" }
+            
         },
         hover: {
             opacity: 1,
@@ -57,9 +57,11 @@ function LandingPage() {
     const parent = {
         rest: {
             opacity: 1,
+            width: 50,
         },
         hover: {
-            opacity: 1
+            opacity: 1,
+            width: 150,
         }
     }
 
@@ -104,9 +106,6 @@ function LandingPage() {
                     initialGap={(xs && !sm) ? 200 : (sm && !md) ? 400 : (md && !lg) ? 800 : (lg && !xl) ? 800 : 1000}
                     scrollGap={(xs && !sm) ? 10 : (sm && !md) ? 0 : (md && !lg) ? 0 : (lg && !xl) ? 0 : -35}
                 />
-          
-            
-
             
             <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}}>
                 <Box
