@@ -39,15 +39,39 @@ function LandingPage() {
     };
 
     const scrollRef = React.useRef(null);
+    const [waveAnimate, setWaveAnimate] = React.useState(false);
 
     const onFirstPageClick = () => { scrollRef.current.scrollToSlide(1) }
 
     const views = {
-        about: useInView(refs.about, {amount: 0.6}),
-        projects: useInView(refs.projects, {amount: 0.6}),
-        socials: useInView(refs.socials, {amount: 0.6}),
-        contact: useInView(refs.contact, {amount: 0.6}),
+        about: useInView(refs.about, {amount: 0.8}),
+        projects: useInView(refs.projects, {amount: 0.8}),
+        socials: useInView(refs.socials, {amount: 0.8}),
+        contact: useInView(refs.contact, {amount: 0.8}),
     }
+
+    const slideIndex = scrollRef.current !== null ? scrollRef.current.getCurrentSlideIndex() : null;
+    React.useEffect(() => {
+        if (slideIndex != null) {
+            if (slideIndex > 0) {
+                setWaveAnimate(true)
+            } else {
+                setWaveAnimate(false)
+            }
+        }
+    }, [slideIndex])
+
+    React.useEffect(() => {
+        if (!md && !mdWidth) {
+            if (views.about || views.projects || views.socials || views.contact) {
+                setWaveAnimate(true)
+            } else {
+                setWaveAnimate(false)
+            }
+        } 
+    }, [views.about, views.projects, views.socials, views.contact])
+
+    
 
     return (
 
@@ -58,34 +82,45 @@ function LandingPage() {
                 paddingX: "10px",
                 position:"relative",
             }}>
-           
-            <Waves
-                colorArray={[
-                    "#FA7268",
-                    "#EF5F67",
-                    "#E34C67",
-                    "#D53867",
-                    "#C62368",
-                ]}
-                style={{
-                    position:"fixed",
-                    width: "100%",
-                    left:"0px",
-                    bottom: 0,
-                    margin: "0px",
-                    overflow: "visible",
-                }}
-                wrapperHeight="100%"
-                gap={ 
-                    (xs && !sm) ? 40 : (sm && !md) ? 50 : (md && !lg) ? 60 : (lg && !xl) ? 70 : 100
-                }
-                height={5}
-                speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
-                points={5}
-                amplitude={20}
-                initialGap={(xs && !sm) ? 200 : (sm && !md) ? 400 : (md && !lg) ? 800 : (lg && !xl) ? 800 : 1000}
-                views={views}
-            />
+           <motion.div 
+            animate={{y: waveAnimate ? (xs && !sm) ? "5%" : (sm && !md) ? "15%" : (md && !lg) ? "18%" : (lg && !xl) ? "15%" : "40%" : "0%"}} 
+            style={{
+                position:"fixed",
+                height: "100%",
+                width: "100%",
+                display: "flex",
+                left: 0
+            }}>
+                <Waves
+                    colorArray={[
+                        "#FA7268",
+                        "#EF5F67",
+                        "#E34C67",
+                        "#D53867",
+                        "#C62368",
+                    ]}
+                    style={{
+                        position:"fixed",
+                        width: "100%",
+                        left:"0px",
+                        bottom: 0,
+                        margin: "0px",
+                        overflow: "visible",
+                    }}
+                    wrapperHeight="100%"
+                    gap={ 
+                        (xs && !sm) ? 40 : (sm && !md) ? 50 : (md && !lg) ? 60 : (lg && !xl) ? 70 : 100
+                    }
+                    height={5}
+                    speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
+                    points={5}
+                    amplitude={20}
+                    initialGap={(xs && !sm) ? 200 : (sm && !md) ? 400 : (md && !lg) ? 800 : (lg && !xl) ? 800 : 1000}
+                    scrollRef={scrollRef}
+                    views={views}
+                />
+           </motion.div>
+            
             
             
             <Stack useFlexGap sx={{width: "100%", height: "100%"}}>

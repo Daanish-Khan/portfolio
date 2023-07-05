@@ -1,17 +1,32 @@
 import Wave from 'react-wavify'
 import './Waves.css'
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import * as React from 'react';
 
-function Waves({colorArray, gap, height, speed, points, amplitude, style, wrapperHeight, initialGap, views}) {
+function Waves({colorArray, gap, height, speed, points, amplitude, style, wrapperHeight, initialGap, scrollRef, views}) {
 
-   
+    const wave1 = useAnimation();
+    const wave2 = useAnimation();
+    const wave3 = useAnimation();
+    const wave4 = useAnimation();
+    const wave5 = useAnimation();
+
+    const animation = [wave1, wave2, wave3, wave4, wave5]
+    const slideIndex = scrollRef.current !== null ? scrollRef.current.getCurrentSlideIndex() : null;
+
+   React.useEffect(() => {
+    if (slideIndex != null) {
+        if (slideIndex > 0) {
+            
+        }
+    }
+   }, [slideIndex])
 
     return (
         <div style={{...style, height: wrapperHeight }}>
             {colorArray.map((element, i) => {
                 return (
-                    <motion.div key={i} style={{...style, bottom: -(gap * (i + 1) + initialGap), position: "absolute", height: "100%"}}>
+                    <motion.div key={i} animate={animation[i]} style={{...style, bottom: -(gap * (i + 1) + initialGap), position: "absolute", height: "100%"}}>
                         <Wave
                             fill={element}
                             paused={false}

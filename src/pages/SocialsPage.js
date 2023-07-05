@@ -16,7 +16,6 @@ function SocialsPage({ inView, innerRef }) {
             controls.start({
                 opacity: 1
             })
-            console.log("about")
         } else {
             controls.start({ opacity: 0 })
         }

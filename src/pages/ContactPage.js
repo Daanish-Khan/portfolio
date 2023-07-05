@@ -16,7 +16,6 @@ function ContactPage({ inView, innerRef }) {
             controls.start({
                 opacity: 1
             })
-            console.log("about")
         } else {
             controls.start({ opacity: 0 })
         }
@@ -38,7 +37,6 @@ function ContactPage({ inView, innerRef }) {
             <motion.div
                 ref={innerRef}
                 animate={controls}
-                
             >
                 <Box
                     sx={{
