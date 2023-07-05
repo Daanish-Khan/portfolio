@@ -38,6 +38,10 @@ function LandingPage() {
         contact: React.useRef(null)
     };
 
+    const scrollRef = React.useRef(null);
+
+    const onFirstPageClick = () => { scrollRef.current.scrollToSlide(1) }
+
     const views = {
         about: useInView(refs.about, {amount: 0.6}),
         projects: useInView(refs.projects, {amount: 0.6}),
@@ -85,7 +89,7 @@ function LandingPage() {
             
             
             <Stack useFlexGap sx={{width: "100%", height: "100%"}}>
-                <FullPage duration={900} scrollMode={md ? "full-page" : "normal"}>
+                <FullPage duration={900} scrollMode={md ? "full-page" : "normal"} ref={scrollRef}>
                     <Slide>
                         <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}}>
                             <Box
@@ -199,7 +203,7 @@ function LandingPage() {
                                     top: (xs && !sm) ? "4vh" : (sm && !md) ? "4vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
                                 }}    
                             >   
-                                <IconBar xsWidth={xsWidth} smWidth={smWidth} mdWidth={mdWidth} lgWidth={lgWidth} xlWidth={xlWidth} />
+                                <IconBar xsWidth={xsWidth} smWidth={smWidth} mdWidth={mdWidth} lgWidth={lgWidth} xlWidth={xlWidth} scrollRef={scrollRef} />
                             </Box>
                             <Box
                                 sx={{
@@ -208,7 +212,10 @@ function LandingPage() {
                                     display: "flex",
                                     width: "100%",
                                     top: (xs && !sm) ? "4vh" : (sm && !md) ? "4vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
-                                }}  
+                                    cursor: "pointer"
+                                }}
+                                onClick={onFirstPageClick}
+                                
                             >
                                 <ScrollDown
                                     width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
