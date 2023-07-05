@@ -1,9 +1,9 @@
 import Wave from 'react-wavify'
 import './Waves.css'
-import { useScroll, useMotionValueEvent, motion, useTransform, useVelocity } from 'framer-motion';
+import { motion } from 'framer-motion';
 import * as React from 'react';
 
-function Waves({colorArray, gap, height, speed, points, amplitude, style, wrapperHeight, initialGap}) {
+function Waves({colorArray, gap, height, speed, points, amplitude, style, wrapperHeight, initialGap, views}) {
 
    
 

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import About from '../graphics/about';
 import Projects from '../graphics/projects';
 import Socials from '../graphics/socials';
-import Blog from '../graphics/blog';
 import Contact from '../graphics/contact';
 
 function IconBar({xsWidth, smWidth, mdWidth, lgWidth, xlWidth}) {
@@ -117,34 +116,13 @@ function IconBar({xsWidth, smWidth, mdWidth, lgWidth, xlWidth}) {
                         }}>Socials</Typography>
                 </motion.div>}
             </motion.div>
-            
-            <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={mdWidth ? parent : parentSmall}>
-                <motion.div style={{flexShrink: 0, display:"inline-block"}}>
-                    <Blog 
-                        width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                        height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                        delay={3.5}
-                        color="white"
-                    />
-                </motion.div>
-                {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
-                    <Typography  
-                        variant="h4" 
-                        sx={{
-                            color: "white", 
-                            overflow: "hidden",
-                            paddingLeft: "10px",
-                            cursor: "pointer"
-                        }}>Blog</Typography>
-                </motion.div>}
-            </motion.div>
-            
+
             <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={mdWidth ? parent : parentSmall}>
                 <motion.div style={{flexShrink: 0, display:"inline-block"}}>
                     <Contact 
-                        width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                        height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                        delay={3.7}
+                        width={(xsWidth && !smWidth) ? "25pt" : (smWidth && !mdWidth) ? "35pt" : (mdWidth && !lgWidth) ? "40pt" : (lgWidth && !xlWidth) ? "45pt" : "50pt"}
+                        height={(xsWidth && !smWidth) ? "25pt" : (smWidth && !mdWidth) ? "35pt" : (mdWidth && !lgWidth) ? "40pt" : (lgWidth && !xlWidth) ? "45pt" : "50pt"}
+                        delay={3.5}
                         color="white"
                     />
                 </motion.div>
