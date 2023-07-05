@@ -206,12 +206,10 @@ function LandingPage() {
                                 width: "100%",
                                 height: "100vh",
                                 top: "100vh",
-                                backgroundColor: "black",
+                                backgroundColor: "rgba(0, 0, 0, 0.6)",
                                 left: 0,
                             }}
-                        
                         > 
-
                     </Box>
                     <Box
                             sx={{
@@ -220,7 +218,7 @@ function LandingPage() {
                                 width: "100%",
                                 height: "100vh",
                                 top: "200vh",
-                                backgroundColor: "red",
+                                backgroundColor: "rgba(255, 0, 0, 0.6)",
                                 left: 0,
                             }}
                         
@@ -234,7 +232,7 @@ function LandingPage() {
                                 width: "100%",
                                 height: "100vh",
                                 top: "300vh",
-                                backgroundColor: "white",
+                                backgroundColor: "rgba(255, 255, 255, 0.6)",
                                 left: 0,
                             }}
                         
@@ -248,7 +246,7 @@ function LandingPage() {
                                 width: "100%",
                                 height: "100vh",
                                 top: "400vh",
-                                backgroundColor: "yellow",
+                                backgroundColor: "rgba(255, 255, 0, 0.6)",
                                 left: 0,
                             }}
                         
@@ -262,7 +260,7 @@ function LandingPage() {
                                 width: "100%",
                                 height: "100vh",
                                 top: "500vh",
-                                backgroundColor: "orange",
+                                backgroundColor: "rgba(255, 165, 0, 0.6)",
                                 left: 0,
                             }}
                         
