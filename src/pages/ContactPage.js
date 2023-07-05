@@ -28,7 +28,6 @@ function ContactPage({ inView, innerRef }) {
                 width: "100%",
                 height: "100vh",
                 top: "400vh",
-                backgroundColor: "rgba(255, 255, 0, 0.6)",
                 left: 0,
                 
             }}

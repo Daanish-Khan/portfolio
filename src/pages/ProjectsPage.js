@@ -28,7 +28,6 @@ function ProjectsPage({ inView, innerRef }) {
                 width: "100%",
                 height: "100vh",
                 top: "200vh",
-                backgroundColor: "rgba(255, 0, 0, 0.6)",
                 left: 0,
                 
             }}

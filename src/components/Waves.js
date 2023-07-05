@@ -3,7 +3,7 @@ import './Waves.css'
 import { motion, useAnimation } from 'framer-motion';
 import * as React from 'react';
 
-function Waves({colorArray, gap, height, speed, points, amplitude, style, wrapperHeight, initialGap, scrollRef, views}) {
+function Waves({colorArray, gap, height, speed, points, amplitude, style, wrapperHeight, initialGap, scrollRef, heightBreakpoints}) {
 
     const wave1 = useAnimation();
     const wave2 = useAnimation();
@@ -15,10 +15,12 @@ function Waves({colorArray, gap, height, speed, points, amplitude, style, wrappe
     const slideIndex = scrollRef.current !== null ? scrollRef.current.getCurrentSlideIndex() : null;
 
    React.useEffect(() => {
+
     if (slideIndex != null) {
-        if (slideIndex > 0) {
-            
-        }
+        slideIndex >= 1 ? animation[0].start({y: "-83%"}) : animation[0].start({y: "0%"})
+        slideIndex >= 2 ? animation[1].start({y: "-83%"}) : animation[1].start({y: "0%"})
+        slideIndex >= 3 ? animation[2].start({y: "-83%"}) : animation[2].start({y: "0%"})
+        slideIndex >= 4 ? animation[3].start({y: "-83%"}) : animation[3].start({y: "0%"})
     }
    }, [slideIndex])
 
@@ -26,7 +28,7 @@ function Waves({colorArray, gap, height, speed, points, amplitude, style, wrappe
         <div style={{...style, height: wrapperHeight }}>
             {colorArray.map((element, i) => {
                 return (
-                    <motion.div key={i} animate={animation[i]} style={{...style, bottom: -(gap * (i + 1) + initialGap), position: "absolute", height: "100%"}}>
+                    <motion.div key={i} transition={{duration: 0.75, type: "spring"}} animate={animation[i]} style={{...style, bottom: -(gap * (i + 1) + initialGap), position: "absolute", height: "100%"}}>
                         <Wave
                             fill={element}
                             paused={false}

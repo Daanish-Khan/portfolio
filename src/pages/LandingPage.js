@@ -19,17 +19,21 @@ import ContactPage from './ContactPage';
 
 function LandingPage() {
 
-    const xs = useMediaQuery('(min-height:0px)');
-    const sm = useMediaQuery('(min-height:350px');
-    const md = useMediaQuery('(min-height:1000px');
-    const lg = useMediaQuery('(min-height:1337px');
-    const xl = useMediaQuery('(min-height:2000px');
+    const heightBreakpoints = {
+        xs: useMediaQuery('(min-height:0px)'),
+        sm: useMediaQuery('(min-height:350px'),
+        md: useMediaQuery('(min-height:1000px'),
+        lg: useMediaQuery('(min-height:1337px'),
+        xl: useMediaQuery('(min-height:2000px'),
+    }
 
-    const xsWidth = useMediaQuery('(min-width:0px)');
-    const smWidth = useMediaQuery('(min-width:600px');
-    const mdWidth = useMediaQuery('(min-width:900px');
-    const lgWidth = useMediaQuery('(min-width:1200px');
-    const xlWidth = useMediaQuery('(min-width:1536px');
+    const widthBreakpoints = {
+        xs: useMediaQuery('(min-width:0px)'),
+        sm: useMediaQuery('(min-width:600px'),
+        md: useMediaQuery('(min-width:900px'),
+        lg: useMediaQuery('(min-width:1200px'),
+        xl: useMediaQuery('(min-width:1536px'),
+    }
 
     const refs = {
         about: React.useRef(null),
@@ -44,10 +48,10 @@ function LandingPage() {
     const onFirstPageClick = () => { scrollRef.current.scrollToSlide(1) }
 
     const views = {
-        about: useInView(refs.about, {amount: 0.8}),
-        projects: useInView(refs.projects, {amount: 0.8}),
-        socials: useInView(refs.socials, {amount: 0.8}),
-        contact: useInView(refs.contact, {amount: 0.8}),
+        about: useInView(refs.about, {amount: 0.6}),
+        projects: useInView(refs.projects, {amount: 0.6}),
+        socials: useInView(refs.socials, {amount: 0.6}),
+        contact: useInView(refs.contact, {amount: 0.6}),
     }
 
     const slideIndex = scrollRef.current !== null ? scrollRef.current.getCurrentSlideIndex() : null;
@@ -62,7 +66,7 @@ function LandingPage() {
     }, [slideIndex])
 
     React.useEffect(() => {
-        if (!md && !mdWidth) {
+        if (!heightBreakpoints.md && !widthBreakpoints.md) {
             if (views.about || views.projects || views.socials || views.contact) {
                 setWaveAnimate(true)
             } else {
@@ -82,8 +86,9 @@ function LandingPage() {
                 paddingX: "10px",
                 position:"relative",
             }}>
-           <motion.div 
-            animate={{y: waveAnimate ? (xs && !sm) ? "5%" : (sm && !md) ? "15%" : (md && !lg) ? "18%" : (lg && !xl) ? "15%" : "40%" : "0%"}} 
+           <motion.div
+            transition={{duration: 0.75, type: "spring"}} 
+            animate={{y: waveAnimate ? (heightBreakpoints.xs && !heightBreakpoints.sm) ? "5%" : (heightBreakpoints.sm && !heightBreakpoints.md) ? "15%" : (heightBreakpoints.md && !heightBreakpoints.lg) ? "18%" : (heightBreakpoints.lg && !heightBreakpoints.xl) ? "15%" : "40%" : "0%"}} 
             style={{
                 position:"fixed",
                 height: "100%",
@@ -109,13 +114,13 @@ function LandingPage() {
                     }}
                     wrapperHeight="100%"
                     gap={ 
-                        (xs && !sm) ? 40 : (sm && !md) ? 50 : (md && !lg) ? 60 : (lg && !xl) ? 70 : 100
+                        (heightBreakpoints.xs && !heightBreakpoints.sm) ? 40 : (heightBreakpoints.sm && !heightBreakpoints.md) ? 50 : (heightBreakpoints.md && !heightBreakpoints.lg) ? 60 : (heightBreakpoints.lg && !heightBreakpoints.xl) ? 70 : 100
                     }
                     height={5}
-                    speed={(xs && !sm) ? 0.1 : (sm && !md) ? 0.15 : (md && !lg) ? 0.2 : (lg && !xl) ? 0.3 : 0.35}
+                    speed={(heightBreakpoints.xs && !heightBreakpoints.sm) ? 0.1 : (heightBreakpoints.sm && !heightBreakpoints.md) ? 0.15 : (heightBreakpoints.md && !heightBreakpoints.lg) ? 0.2 : (heightBreakpoints.lg && !heightBreakpoints.xl) ? 0.3 : 0.35}
                     points={5}
                     amplitude={20}
-                    initialGap={(xs && !sm) ? 200 : (sm && !md) ? 400 : (md && !lg) ? 800 : (lg && !xl) ? 800 : 1000}
+                    initialGap={(heightBreakpoints.xs && !heightBreakpoints.sm) ? 200 : (heightBreakpoints.sm && !heightBreakpoints.md) ? 400 : (heightBreakpoints.md && !heightBreakpoints.lg) ? 800 : (heightBreakpoints.lg && !heightBreakpoints.xl) ? 800 : 1000}
                     scrollRef={scrollRef}
                     views={views}
                 />
@@ -124,7 +129,7 @@ function LandingPage() {
             
             
             <Stack useFlexGap sx={{width: "100%", height: "100%"}}>
-                <FullPage duration={900} scrollMode={md ? "full-page" : "normal"} ref={scrollRef}>
+                <FullPage duration={900} scrollMode={heightBreakpoints.md ? "full-page" : "normal"} ref={scrollRef}>
                     <Slide>
                         <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}}>
                             <Box
@@ -186,7 +191,7 @@ function LandingPage() {
                             <Box 
                                 sx={{
                                     position: "relative",
-                                    top: (xs && !sm) ? "4vh" : (sm && !md) ? "6vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
+                                    top: (heightBreakpoints.xs && !heightBreakpoints.sm) ? "4vh" : (heightBreakpoints.sm && !heightBreakpoints.md) ? "6vh" : (heightBreakpoints.md && !heightBreakpoints.lg) ? "8vh" : (heightBreakpoints.lg && !heightBreakpoints.xl) ? "9vh" : "9vh",
                                     left: {sm: "0vw", md: "10vw"},
                                     width: {md: "90%"}
                                 }}
@@ -213,7 +218,7 @@ function LandingPage() {
                                                 width: {xs: "100%", md: "50%", xl: "30%"}
                                                 
                                             }}>
-                                                {( lgWidth ) ? 
+                                                {( widthBreakpoints.lg ) ? 
                                                     <Typography variant="h6" sx={{ color: 'white', top: 0, left: 0}}>
                                                         Software Engineer, Full Stack Dev, Cat Enthusiast
                                                     </Typography>
@@ -235,10 +240,10 @@ function LandingPage() {
                                     position: "relative",
                                     left: {xs: "0vw", md: "10vw"},
                                     width: {md: "90%"},
-                                    top: (xs && !sm) ? "4vh" : (sm && !md) ? "4vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
+                                    top: (heightBreakpoints.xs && !heightBreakpoints.sm) ? "4vh" : (heightBreakpoints.sm && !heightBreakpoints.md) ? "4vh" : (heightBreakpoints.md && !heightBreakpoints.lg) ? "8vh" : (heightBreakpoints.lg && !heightBreakpoints.xl) ? "9vh" : "9vh",
                                 }}    
                             >   
-                                <IconBar xsWidth={xsWidth} smWidth={smWidth} mdWidth={mdWidth} lgWidth={lgWidth} xlWidth={xlWidth} scrollRef={scrollRef} />
+                                <IconBar widthBreakpoints={widthBreakpoints} scrollRef={scrollRef} />
                             </Box>
                             <Box
                                 sx={{
@@ -246,15 +251,15 @@ function LandingPage() {
                                     justifyContent: "center",
                                     display: "flex",
                                     width: "100%",
-                                    top: (xs && !sm) ? "4vh" : (sm && !md) ? "4vh" : (md && !lg) ? "8vh" : (lg && !xl) ? "9vh" : "9vh",
+                                    top: (heightBreakpoints.xs && !heightBreakpoints.sm) ? "4vh" : (heightBreakpoints.sm && !heightBreakpoints.md) ? "4vh" : (heightBreakpoints.md && !heightBreakpoints.lg) ? "8vh" : (heightBreakpoints.lg && !heightBreakpoints.xl) ? "9vh" : "9vh",
                                     cursor: "pointer"
                                 }}
                                 onClick={onFirstPageClick}
                                 
                             >
                                 <ScrollDown
-                                    width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                                    height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                                    width={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
+                                    height={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
                                     delay={3.7}
                                     color="white"
                                 />

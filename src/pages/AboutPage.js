@@ -28,7 +28,6 @@ function AboutPage({ inView, innerRef }) {
                 width: "100%",
                 height: "100vh",
                 top: "100vh",
-                backgroundColor: "rgba(0, 0, 0, 0.6)",
                 left: 0,
                 
             }}

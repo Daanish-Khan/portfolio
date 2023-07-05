@@ -5,7 +5,7 @@ import Projects from '../graphics/projects';
 import Socials from '../graphics/socials';
 import Contact from '../graphics/contact';
 
-function IconBar({ xsWidth, smWidth, mdWidth, lgWidth, xlWidth, scrollRef }) {
+function IconBar({ widthBreakpoints, scrollRef }) {
 
     const textMotion = {
         rest: {
@@ -59,16 +59,16 @@ function IconBar({ xsWidth, smWidth, mdWidth, lgWidth, xlWidth, scrollRef }) {
 
     return (  
         <Stack direction="row" spacing={{xs: 5, lg: 7}} justifyContent={{xs: "center", md: "left"}}>   
-            <motion.div style={{ display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={mdWidth ? parent : parentSmall} onClick={onAboutClick}>
+            <motion.div style={{ display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={widthBreakpoints.md ? parent : parentSmall} onClick={onAboutClick}>
                 <motion.div style={{flexShrink: 0, display:"inline-block"}}>
                     <About 
-                        width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                        height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                        width={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
+                        height={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
                         delay={2.8}
                         color="white"
                     />
                 </motion.div>
-                {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}} >
+                {widthBreakpoints.md && <motion.div variants={textMotion} style={{display: "inline-flex"}} >
                     <Typography  
                         variant="h4" 
                         sx={{
@@ -80,16 +80,16 @@ function IconBar({ xsWidth, smWidth, mdWidth, lgWidth, xlWidth, scrollRef }) {
                 </motion.div>}
             </motion.div>
 
-            <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={mdWidth ? parent : parentSmall} onClick={onProjectsClick}>
+            <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={widthBreakpoints.md ? parent : parentSmall} onClick={onProjectsClick}>
                 <motion.div style={{flexShrink: 0, display:"inline-block"}}>
                     <Projects 
-                        width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                        height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                        width={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
+                        height={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
                         delay={3.1}
                         color="white"
                     />
                 </motion.div>
-                {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
+                {widthBreakpoints.md && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
                     <Typography  
                         variant="h4" 
                         sx={{
@@ -101,16 +101,16 @@ function IconBar({ xsWidth, smWidth, mdWidth, lgWidth, xlWidth, scrollRef }) {
                 </motion.div>}
             </motion.div>
 
-            <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={mdWidth ? parent : parentSmall} onClick={onSocialsClick}>
+            <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={widthBreakpoints.md ? parent : parentSmall} onClick={onSocialsClick}>
                 <motion.div style={{flexShrink: 0, display:"inline-block"}}>
                     <Socials 
-                        width={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
-                        height={(xsWidth && !smWidth) ? "20pt" : (smWidth && !mdWidth) ? "25pt" : (mdWidth && !lgWidth) ? "30pt" : (lgWidth && !xlWidth) ? "35pt" : "40pt"}
+                        width={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
+                        height={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
                         delay={3.3}
                         color="white"
                     />
                 </motion.div>
-                {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
+                {widthBreakpoints.md && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
                     <Typography  
                         variant="h4" 
                         sx={{
@@ -122,16 +122,16 @@ function IconBar({ xsWidth, smWidth, mdWidth, lgWidth, xlWidth, scrollRef }) {
                 </motion.div>}
             </motion.div>
 
-            <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={mdWidth ? parent : parentSmall} onClick={onContactClick}>
+            <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={widthBreakpoints.md ? parent : parentSmall} onClick={onContactClick}>
                 <motion.div style={{flexShrink: 0, display:"inline-block"}}>
                     <Contact 
-                        width={(xsWidth && !smWidth) ? "25pt" : (smWidth && !mdWidth) ? "35pt" : (mdWidth && !lgWidth) ? "40pt" : (lgWidth && !xlWidth) ? "45pt" : "50pt"}
-                        height={(xsWidth && !smWidth) ? "25pt" : (smWidth && !mdWidth) ? "35pt" : (mdWidth && !lgWidth) ? "40pt" : (lgWidth && !xlWidth) ? "45pt" : "50pt"}
+                        width={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "25pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "35pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "40pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "45pt" : "50pt"}
+                        height={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "25pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "35pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "40pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "45pt" : "50pt"}
                         delay={3.5}
                         color="white"
                     />
                 </motion.div>
-                {mdWidth && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
+                {widthBreakpoints.md && <motion.div variants={textMotion} style={{display: "inline-flex"}}>
                     <Typography  
                         variant="h4" 
                         sx={{
