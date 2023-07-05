@@ -36,6 +36,7 @@ function LandingPage() {
     }
 
     const refs = {
+        home: React.useRef(null),
         about: React.useRef(null),
         projects: React.useRef(null),
         socials: React.useRef(null),
@@ -48,6 +49,7 @@ function LandingPage() {
     const onFirstPageClick = () => { scrollRef.current.scrollToSlide(1) }
 
     const views = {
+        home: useInView(refs.home, {amount: 0.6}),
         about: useInView(refs.about, {amount: 0.6}),
         projects: useInView(refs.projects, {amount: 0.6}),
         socials: useInView(refs.socials, {amount: 0.6}),
@@ -69,13 +71,11 @@ function LandingPage() {
         if (!heightBreakpoints.md && !widthBreakpoints.md) {
             if (views.about || views.projects || views.socials || views.contact) {
                 setWaveAnimate(true)
-            } else {
+            } else if (views.home) {
                 setWaveAnimate(false)
             }
         } 
-    }, [views.about, views.projects, views.socials, views.contact])
-
-    
+    }, [views.home, views.about, views.projects, views.socials, views.contact])
 
     return (
 
@@ -123,15 +123,15 @@ function LandingPage() {
                     initialGap={(heightBreakpoints.xs && !heightBreakpoints.sm) ? 200 : (heightBreakpoints.sm && !heightBreakpoints.md) ? 400 : (heightBreakpoints.md && !heightBreakpoints.lg) ? 800 : (heightBreakpoints.lg && !heightBreakpoints.xl) ? 800 : 1000}
                     scrollRef={scrollRef}
                     views={views}
+                    heightBreakpoints={heightBreakpoints}
+                    widthBreakpoints={widthBreakpoints}
                 />
            </motion.div>
-            
-            
-            
+
             <Stack useFlexGap sx={{width: "100%", height: "100%"}}>
                 <FullPage duration={900} scrollMode={heightBreakpoints.md ? "full-page" : "normal"} ref={scrollRef}>
                     <Slide>
-                        <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}}>
+                        <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}} ref={refs.home}>
                             <Box
                                 sx={{
                                     position: "relative",

@@ -3,7 +3,7 @@ import './Waves.css'
 import { motion, useAnimation } from 'framer-motion';
 import * as React from 'react';
 
-function Waves({colorArray, gap, height, speed, points, amplitude, style, wrapperHeight, initialGap, scrollRef, heightBreakpoints}) {
+function Waves({colorArray, gap, height, speed, points, amplitude, style, wrapperHeight, initialGap, scrollRef, heightBreakpoints, widthBreakpoints, views}) {
 
     const wave1 = useAnimation();
     const wave2 = useAnimation();
@@ -14,15 +14,48 @@ function Waves({colorArray, gap, height, speed, points, amplitude, style, wrappe
     const animation = [wave1, wave2, wave3, wave4, wave5]
     const slideIndex = scrollRef.current !== null ? scrollRef.current.getCurrentSlideIndex() : null;
 
-   React.useEffect(() => {
+    React.useEffect(() => {
+        const animateToPercentage = (heightBreakpoints.xs && !heightBreakpoints.sm) ? "-71%" : (heightBreakpoints.sm && !heightBreakpoints.md) ? "-60%" : (heightBreakpoints.md && !heightBreakpoints.lg) ? "-80%" : (heightBreakpoints.lg && !heightBreakpoints.xl) ? "-80%" : "-83%"
+        if (slideIndex != null) {
+            slideIndex >= 1 ? animation[0].start({y: animateToPercentage}) : animation[0].start({y: "0%"})
+            slideIndex >= 2 ? animation[1].start({y: animateToPercentage}) : animation[1].start({y: "0%"})
+            slideIndex >= 3 ? animation[2].start({y: animateToPercentage}) : animation[2].start({y: "0%"})
+            slideIndex >= 4 ? animation[3].start({y: animateToPercentage}) : animation[3].start({y: "0%"})
+        }
+    }, [slideIndex])
 
-    if (slideIndex != null) {
-        slideIndex >= 1 ? animation[0].start({y: "-83%"}) : animation[0].start({y: "0%"})
-        slideIndex >= 2 ? animation[1].start({y: "-83%"}) : animation[1].start({y: "0%"})
-        slideIndex >= 3 ? animation[2].start({y: "-83%"}) : animation[2].start({y: "0%"})
-        slideIndex >= 4 ? animation[3].start({y: "-83%"}) : animation[3].start({y: "0%"})
-    }
-   }, [slideIndex])
+    React.useEffect(() => {    
+        const animateToPercentage = (heightBreakpoints.xs && !heightBreakpoints.sm) ? "-71%" : (heightBreakpoints.sm && !heightBreakpoints.md) ? "-60%" : (heightBreakpoints.md && !heightBreakpoints.lg) ? "-80%" : (heightBreakpoints.lg && !heightBreakpoints.xl) ? "-80%" : "-83%"
+        if (!heightBreakpoints.md && !widthBreakpoints.md) {
+            console.log(views)
+            if (views.home || views.about || views.projects || views.socials || views.contact) {
+                if (views.about || views.projects || views.socials || views.contact) {
+                    animation[0].start({y: animateToPercentage})
+                } else {
+                    animation[0].start({y: "0%"})
+                }
+    
+                if (views.projects || views.socials || views.contact) {
+                    animation[1].start({y: animateToPercentage})
+                } else {
+                    animation[1].start({y: "0%"})
+                }
+    
+                if (views.socials || views.contact) {
+                    animation[2].start({y: animateToPercentage})
+                } else {
+                    animation[2].start({y: "0%"})
+                }
+    
+                if (views.contact) {
+                    animation[3].start({y: animateToPercentage})
+                } else {
+                    animation[3].start({y: "0%"})
+                }
+            }
+            
+        }
+    }, [views.home, views.about, views.projects, views.socials, views.contact])
 
     return (
         <div style={{...style, height: wrapperHeight }}>
