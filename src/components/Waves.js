@@ -27,7 +27,6 @@ function Waves({colorArray, gap, height, speed, points, amplitude, style, wrappe
     React.useEffect(() => {    
         const animateToPercentage = (heightBreakpoints.xs && !heightBreakpoints.sm) ? "-71%" : (heightBreakpoints.sm && !heightBreakpoints.md) ? "-60%" : (heightBreakpoints.md && !heightBreakpoints.lg) ? "-80%" : (heightBreakpoints.lg && !heightBreakpoints.xl) ? "-80%" : "-83%"
         if (!heightBreakpoints.md && !widthBreakpoints.md) {
-            console.log(views)
             if (views.home || views.about || views.projects || views.socials || views.contact) {
                 if (views.about || views.projects || views.socials || views.contact) {
                     animation[0].start({y: animateToPercentage})

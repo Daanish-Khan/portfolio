@@ -129,7 +129,7 @@ function LandingPage() {
            </motion.div>
 
             <Stack useFlexGap sx={{width: "100%", height: "100%"}}>
-                <FullPage duration={900} scrollMode={heightBreakpoints.md ? "full-page" : "normal"} ref={scrollRef}>
+                <FullPage duration={900} scrollMode={(heightBreakpoints.sm && widthBreakpoints.md) ? "full-page" : "normal"} ref={scrollRef}>
                     <Slide>
                         <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}} ref={refs.home}>
                             <Box
