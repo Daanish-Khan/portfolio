@@ -112,7 +112,7 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
                 </motion.div>
                 <Stack direction={{xs: 'column', md: 'row'}} spacing={3} sx={{alignItems: "center", paddingX: (widthBreakpoints.xs && !widthBreakpoints.sm) ? "4%" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "3%" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "5%" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "8%" : "15%"}}>
                     {!widthBreakpoints.md &&
-                        <motion.div animate={controls_carousel} style={{width: "100%"}}>
+                        <motion.div animate={controls_carousel} style={{width: "100%", justifyContent: "center", display: "flex"}}>
                             <ImageCarousel images={images} widthBreakpoints={widthBreakpoints} />
                         </motion.div>
                     }
@@ -134,7 +134,7 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
                         </Typography>
                     </motion.div>
                     {widthBreakpoints.md &&
-                        <motion.div animate={controls_carousel} style={{width:"100%"}}>
+                        <motion.div animate={controls_carousel} style={{width: "100%"}}>
                             <ImageCarousel images={images} widthBreakpoints={widthBreakpoints} />
                         </motion.div>
                     }
