@@ -267,7 +267,7 @@ function LandingPage() {
                         </Stack>
                     </Slide>
                     <Slide>
-                        <AboutPage inView={views.about} innerRef={refs.about} />
+                        <AboutPage inView={views.about} innerRef={refs.about} widthBreakpoints={widthBreakpoints} heightBreakpoints={heightBreakpoints} />
                     </Slide>
                     <Slide>
                         <ProjectsPage inView={views.projects} innerRef={refs.projects} />
