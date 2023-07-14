@@ -128,9 +128,7 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
                             }}> Hello! I'm Daanish Khan, a full stack software developer. I'm also a 5th year student at the University of Ottawa! <br/> <br/>
                             I'm proficient in many languages, including Java, JavaScript, Python, and C++. I'm also versed in React (which this website was developed with!), Spring Boot, and Node.JS.
                             <br/> <br/>
-                            When I'm not coding, I like to go on bike rides, play video games, and start a million projects that I never get around to finishing :)
-                            <br/> <br/>
-                            Interested in what I do? Check out my resume or scroll down to see my cool projects that I actually finished!
+                            Interested in what I do? Check out my resume or scroll down to see my projects!
                         </Typography>
                     </motion.div>
                     {widthBreakpoints.md &&
