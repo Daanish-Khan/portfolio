@@ -45,7 +45,7 @@ function ImageCarousel({ images, widthBreakpoints }) {
   })
 
   return (
-    <Box sx={{ maxWidth: {xs: 345, md: 400, lg: 500 }, flexGrow: 1 }}>
+    <Box sx={{ maxWidth: {xs: 345, md: 400, lg: 500 }, minWidth: { xs: 145, md: 200, lg: 300 }, flexGrow: 1 }}>
       <Paper
         square
         elevation={0}
@@ -72,7 +72,7 @@ function ImageCarousel({ images, widthBreakpoints }) {
                   display: {xs: "flex"}, 
                   fontWeight: "light",
               }}
-            >Pictures by&nbsp;<Link href="https://howardt12345.com/">Howard Tseng</Link>{widthBreakpoints.md ? ". Check him out!" : ""}</Typography>
+            >Pictures by&nbsp;<Link href="https://howardt12345.com/">Howard Tseng</Link></Typography>
             
         <Typography
           variant="h7"
@@ -103,6 +103,7 @@ function ImageCarousel({ images, widthBreakpoints }) {
                   height: { xs: 200, md: 255, lg: 355},
                   display: 'block',
                   maxWidth: { xs: 345, md: 400, lg: 500 },
+                  minWidth: { xs: 145, md: 200, lg: 300 },
                   overflow: 'hidden',
                   width: '100%',
                 }}

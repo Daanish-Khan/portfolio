@@ -48,7 +48,7 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
       ];
 
     React.useEffect(() => {
-        console.log(heightBreakpoints)
+        console.log(widthBreakpoints)
         if (inView) {
             controls_title.start({ opacity: 1, y: 0, transition: { duration: 0.7 } })
             controls_text.start({ opacity: 1, x: 0, transition: { duration: 0.7, delay: 0.3 } })
@@ -97,7 +97,7 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
             }}
         
         > 
-            <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, lg: 7}} ref={innerRef}>
+            <Stack useFlexGap sx={{width: "100%", height: "100%"}} spacing={{xs: 5, xl: 7}} ref={innerRef}>
                 <motion.div animate={controls_title}>
                     <Typography 
                         variant="h2"
@@ -110,7 +110,7 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
                         }}> About
                     </Typography>
                 </motion.div>
-                <Stack direction={{xs: 'column', md: 'row'}} spacing={3} sx={{alignItems: "center", paddingX: (widthBreakpoints.xs && !widthBreakpoints.sm) ? "4%" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "3%" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "5%" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "8%" : "15%"}}>
+                <Stack direction={{xs: 'column', md: 'row'}} spacing={3} justifyContent="center" sx={{alignItems: "center", paddingX: (widthBreakpoints.xs && !widthBreakpoints.sm) ? "4%" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "3%" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "5%" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "8%" : "15%"}}>
                     {!widthBreakpoints.md &&
                         <motion.div animate={controls_carousel} style={{width: "100%", justifyContent: "center", display: "flex"}}>
                             <ImageCarousel images={images} widthBreakpoints={widthBreakpoints} />
@@ -118,7 +118,7 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
                     }
                     <motion.div animate={controls_text}>
                         <Typography 
-                            variant={(heightBreakpoints.xs && !heightBreakpoints.sm) ? "body1" : (heightBreakpoints.sm && !heightBreakpoints.md) ? "body2" : (heightBreakpoints.md && !heightBreakpoints.lg) ? "h6" : (heightBreakpoints.lg && !heightBreakpoints.xl) ? "h5" : "h5"}
+                            variant={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "body2" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "body1" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "h7" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "h5" : "h5"}
                             sx={{
                                 color: "white", 
                                 alignItems: {xs: "center"},
@@ -128,13 +128,11 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
                             }}> Hello! I'm Daanish Khan, a full stack software developer. I'm also a 5th year student at the University of Ottawa! <br/> <br/>
                             I'm proficient in many languages, including Java, JavaScript, Python, and C++. I'm also versed in React (which this website was developed with!), Spring Boot, and Node.JS.
                             <br/> <br/>
-                            When I'm not coding, I like to go on bike rides, play video games, and start a million projects that I never get around to finishing :)
-                            <br/> <br/>
-                            Interested in what I do? Check out my resume or scroll down to see my cool projects that I actually finished!
+                            Interested in what I do? Check out my resume or scroll down to see my projects!
                         </Typography>
                     </motion.div>
                     {widthBreakpoints.md &&
-                        <motion.div animate={controls_carousel} style={{width: "100%"}}>
+                        <motion.div animate={controls_carousel} style={{width: "100%", justifyContent: "center", display: "flex"}}>
                             <ImageCarousel images={images} widthBreakpoints={widthBreakpoints} />
                         </motion.div>
                     }

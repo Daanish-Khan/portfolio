@@ -32,7 +32,7 @@ function LandingPage() {
         sm: useMediaQuery('(min-width:600px'),
         md: useMediaQuery('(min-width:900px'),
         lg: useMediaQuery('(min-width:1200px'),
-        xl: useMediaQuery('(min-width:1536px'),
+        xl: useMediaQuery('(min-width:1600px'),
     }
 
     const refs = {
