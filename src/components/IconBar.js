@@ -53,9 +53,9 @@ function IconBar({ widthBreakpoints, scrollRef }) {
     }
 
     const onAboutClick = () => { scrollRef.current.scrollToSlide(1) }
-    const onProjectsClick = () => { scrollRef.current.scrollToSlide(2) }
+	const onProjectsClick = () => { /*scrollRef.current.scrollToSlide(2)*/ window.location.href = "https://github.com/Daanish-Khan"}
     const onSocialsClick = () => { scrollRef.current.scrollToSlide(3) }
-    const onContactClick = () => { scrollRef.current.scrollToSlide(4) }
+    const onContactClick = () => { /*scrollRef.current.scrollToSlide(4)*/ window.location.href = "mailto:dkhan045@uottawa.ca" }
 
     return (  
         <Stack direction="row" spacing={{xs: 5, lg: 7}} justifyContent={{xs: "center", md: "left"}}>   
@@ -101,7 +101,7 @@ function IconBar({ widthBreakpoints, scrollRef }) {
                 </motion.div>}
             </motion.div>
 
-            <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={widthBreakpoints.md ? parent : parentSmall} onClick={onSocialsClick}>
+            {/*<motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={widthBreakpoints.md ? parent : parentSmall} onClick={onSocialsClick}>
                 <motion.div style={{flexShrink: 0, display:"inline-block"}}>
                     <Socials 
                         width={(widthBreakpoints.xs && !widthBreakpoints.sm) ? "20pt" : (widthBreakpoints.sm && !widthBreakpoints.md) ? "25pt" : (widthBreakpoints.md && !widthBreakpoints.lg) ? "30pt" : (widthBreakpoints.lg && !widthBreakpoints.xl) ? "35pt" : "40pt"}
@@ -120,7 +120,7 @@ function IconBar({ widthBreakpoints, scrollRef }) {
                             cursor: "pointer"
                         }}>Socials</Typography>
                 </motion.div>}
-            </motion.div>
+					</motion.div>*/}
 
             <motion.div style={{display:"flex", alignItems: "center"}} initial="rest" whileHover="hover" animate="rest" variants={widthBreakpoints.md ? parent : parentSmall} onClick={onContactClick}>
                 <motion.div style={{flexShrink: 0, display:"inline-block"}}>

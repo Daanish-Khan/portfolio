@@ -269,7 +269,7 @@ function LandingPage() {
                     <Slide>
                         <AboutPage inView={views.about} innerRef={refs.about} widthBreakpoints={widthBreakpoints} heightBreakpoints={heightBreakpoints} />
                     </Slide>
-                    <Slide>
+                    {/*<Slide>
                         <ProjectsPage inView={views.projects} innerRef={refs.projects} />
                     </Slide>
                     <Slide>
@@ -277,7 +277,7 @@ function LandingPage() {
                     </Slide>
                     <Slide>
                         <ContactPage inView={views.contact} innerRef={refs.contact} />
-                    </Slide>
+							</Slide>*/}
                     
                 </FullPage>
             </Stack>

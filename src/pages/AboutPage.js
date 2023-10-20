@@ -143,7 +143,7 @@ function AboutPage({ inView, innerRef, heightBreakpoints, widthBreakpoints }) {
                     <motion.div animate={controls_button}>
                         <Box sx={{display: "flex", justifyContent: "center"}}>   
                             <ThemeProvider theme={theme}>
-                                <Button href={cv} size="large" variant="contained">Resume</Button>
+                                <Button href={"http://daanish-khan.github.io/resume/cv.pdf"} size="large" variant="contained">Resume</Button>
                             </ThemeProvider>
                         </Box>
                     </motion.div>
